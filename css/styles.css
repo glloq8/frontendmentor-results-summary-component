@@ -331,8 +331,8 @@ fieldset {
 
 @font-face {
   font-family: "HankenGrotesk Extrabold";
-  src: url("../fonts/HankenGrotesk-Extrabold.eot");
-  src: url("../fonts/HankenGrotesk-Extrabold.eot?#iefix") format("embedded-opentype"), url("../fonts/HankenGrotesk-Extrabold.ttf") format("truetype");
+  src: url("../fonts/HankenGrotesk-ExtraBold.eot");
+  src: url("../fonts/HankenGrotesk-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/HankenGrotesk-ExtraBold.ttf") format("truetype");
   font-weight: normal;
   font-style: 800;
   font-display: swap;
