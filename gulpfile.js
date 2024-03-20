@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require('sass'));
 const browserSync = require("browser-sync").create();
 const gcmq = require("gulp-group-css-media-queries");
 const cssnano = require("gulp-cssnano");

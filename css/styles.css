@@ -1,0 +1,592 @@
+@charset "UTF-8";
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/*-_-_-_-_-_-_- colors -_-_-_-_-_-_- */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+:root {
+  --clr-gradient-start: hsl(252, 100%, 67%);
+  --clr-gradient-end: hsl(241, 81%, 54%);
+  --clr-gradient-circle-start: hsla(256, 72%, 46%, 1);
+  --clr-gradient-circle-end: hsla(241, 72%, 46%, 0);
+  --clr-red: hsl(0, 100%, 67%);
+  --clr-yellow: hsl(39, 100%, 56%);
+  --clr-green: hsl(166, 100%, 37%);
+  --clr-blue: hsl(234, 85%, 45%);
+  --clr-btn: #303b59;
+  --clr-white: #fff;
+  --clr-title: #2f354b;
+  --clr-blue-pale: hsl(221, 100%, 96%);
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/*-_-_-_-_-_-_- fonts -_-_-_-_-_-_- */
+
+/*---------------------------------------------------------------------------------------------------*/
+
+:root {
+  --font-base: "HankenGrotesk Medium";
+  --font-bold: "HankenGrotesk Bold";
+  --font-extra: "HankenGrotesk ExtraBold";
+  --fz-base: 18px;
+}
+
+/* Fonction toute prête pour gérer Rem et Pixel en fonction des supports des navigateurs. */
+
+:root {
+  --gap: 8px;
+}
+
+:root {
+  --container-padding: 20px;
+  --container-width: 100%;
+}
+
+.container {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding-left: calc(50% - var(--container-width) / 2);
+  padding-right: calc(50% - var(--container-width) / 2);
+}
+
+.container-full {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-margin {
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--container-width);
+}
+
+.container-narrow {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+table {
+  border: 0;
+  border-spacing: 0;
+  empty-cells: show;
+  border-collapse: 0;
+}
+
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 62.5%;
+  -ms-text-size-adjust: 62.5%;
+}
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  font-family: var(--font-base);
+  color: var(--color-text);
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  border: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+input[type=text],
+input[type=password],
+input[type=number] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  border-radius: 0;
+}
+
+/* input[type="number"] {
+     -webkit-appearance: textfield;
+     -moz-appearance:textfield;
+} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  *overflow: visible;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  *height: 13px;
+  *width: 13px;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "HankenGrotesk Bold";
+  src: url("../fonts/HankenGrotesk-Bold.eot");
+  src: url("../fonts/HankenGrotesk-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HankenGrotesk-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HankenGrotesk Extrabold";
+  src: url("../fonts/HankenGrotesk-Extrabold.eot");
+  src: url("../fonts/HankenGrotesk-Extrabold.eot?#iefix") format("embedded-opentype"), url("../fonts/HankenGrotesk-Extrabold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HankenGrotesk Medium";
+  src: url("../fonts/HankenGrotesk-Medium.eot");
+  src: url("../fonts/HankenGrotesk-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/HankenGrotesk-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: 500;
+  font-display: swap;
+}
+
+body {
+  min-height: 100vh;
+  font-size: var(--fz-base);
+}
+
+.main {
+  position: relative;
+}
+
+.results {
+  --text-opacity: .7;
+  background-image: linear-gradient(180deg, var(--clr-gradient-start), var(--clr-gradient-end));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--clr-blue-pale);
+  border-radius: 0 0 30px 30px;
+  padding: 22px 50px 39px;
+  margin-bottom: 20px;
+}
+
+.results h1 {
+  margin-bottom: 21px;
+  opacity: var(--text-opacity);
+}
+
+.results .number {
+  width: 140px;
+  aspect-ratio: 1;
+  border-radius: 100vh;
+  background-image: linear-gradient(180deg, var(--clr-gradient-circle-start), var(--clr-gradient-circle-end));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 21px;
+}
+
+.results .number strong {
+  font-family: var(--font-extra);
+  font-size: 54px;
+}
+
+.results .number span {
+  font-size: 15px;
+  opacity: var(--text-opacity);
+}
+
+.results .result {
+  font-size: 22px;
+  font-family: var(--font-extra);
+  margin-bottom: 8px;
+  margin-left: -5px;
+}
+
+.results .desc {
+  opacity: var(--text-opacity);
+  font-size: 15.5px;
+}
+
+.summary {
+  padding-inline: 30px;
+}
+
+.summary .title {
+  font-family: var(--font-bold);
+  color: var(--clr-title);
+  margin-bottom: 20px;
+}
+
+.summary ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.summary ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--color);
+  padding-inline: 16px;
+  height: 56px;
+  position: relative;
+}
+
+.summary ul li:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color);
+  opacity: 0.1;
+  border-radius: 10px;
+}
+
+.summary ul li.red {
+  --color: var(--clr-red);
+}
+
+.summary ul li.yellow {
+  --color: var(--clr-yellow);
+}
+
+.summary ul li.green {
+  --color: var(--clr-green);
+}
+
+.summary ul li.blue {
+  --color: var(--clr-blue);
+}
+
+.summary ul li .name {
+  flex: 1;
+  font-family: var(--font-bold);
+  font-size: 16px;
+}
+
+.summary ul li .note {
+  color: var(--clr-btn);
+  font-family: var(--font-bold);
+  font-size: 16px;
+}
+
+.summary ul li .note span {
+  opacity: 0.7;
+}
+
+.summary .action {
+  margin-bottom: 30px;
+}
+
+.summary .action a {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: var(--clr-btn);
+  height: 56px;
+  color: var(--clr-white);
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 350ms ease-out;
+}
+
+.summary .action a:hover {
+  background: var(--clr-blue);
+}
+
+.debug {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.debug img {
+  opacity: 0.5;
+}
+
+@media only screen and (min-width: 1025px) {
+  :root {
+    --container-width: 730px;
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 730px;
+    box-shadow: 0px 10px 32px 20px rgba(0, 0, 0, 0.09);
+    border-radius: 30px;
+  }
+
+  .results {
+    border-radius: 30px;
+    margin-bottom: 0;
+    justify-content: flex-start;
+    padding-top: 38px;
+    padding-bottom: 54px;
+  }
+
+  .results h1 {
+    font-size: 24px;
+    margin-left: -5px;
+    margin-bottom: 34px;
+  }
+
+  .results .number {
+    width: 200px;
+    margin-bottom: 27px;
+  }
+
+  .results .number strong {
+    font-size: 70px;
+    line-height: 1;
+    margin-bottom: 2px;
+    margin-top: 8px;
+  }
+
+  .results .number span {
+    font-size: 18px;
+  }
+
+  .results .result {
+    font-size: 30px;
+    margin-right: 1px;
+    margin-bottom: 15px;
+  }
+
+  .results .desc {
+    font-size: 18px;
+  }
+
+  .summary {
+    padding: 40px 40px 0;
+  }
+
+  .summary .title {
+    font-size: 23px;
+    margin-bottom: 26px;
+  }
+
+  .summary ul {
+    gap: 16px;
+    margin-bottom: 39px;
+  }
+
+  .summary ul li .name {
+    font-size: 18px;
+  }
+
+  .summary ul li .note {
+    font-size: 19px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

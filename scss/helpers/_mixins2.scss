@@ -10,29 +10,45 @@
 
 
 // Font face
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-    $src: null;
+// @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+//     $src: null;
 
-    $extmods: (
-        eot: "?",
-        svg: "#" + str_replace($name, " ", "_")
-    );
+//     $extmods: (
+//         eot: "?",
+//         svg: "#" + str_replace($name, " ", "_")
+//     );
 
-    $formats: (
-        otf: "opentype",
-        ttf: "truetype"
-    );
+//     $formats: (
+//         otf: "opentype",
+//         ttf: "truetype"
+//     );
 
-    @each $ext in $exts {
-        $extmod: if(map-has-key($extmods, $text), $ext + map-get($extmods, $ext), $ext);
-        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-    }
+//     @each $ext in $exts {
+//         $extmod: if(map-has-key($extmods, $text), $ext + map-get($extmods, $ext), $ext);
+//         $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+//         $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+//     }
 
+//     @font-face {
+//         font-family: quote($name);
+//         font-style: $style;
+//         font-weight: $weight;
+//         src: $src
+//     }
+// }
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
     @font-face {
-        font-family: quote($name);
-        font-style: $style;
-        font-weight: $weight;
-        src: $src
+      font-family: quote($font-name);
+      src: url($file-name + '.eot');
+      src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+    //   url($file-name + '.otf') format('otf'),
+    //   url($file-name + '.woff') format('woff'),
+    //   url($file-name + '.woff2') format('woff2'),
+      url($file-name + '.ttf')  format('truetype');
+    //   url($file-name + '.svg##{$font-name}')  format('svg');
+      font-weight: $weight;
+      font-style: $style;
+      font-display: swap;
     }
-}
+  }
